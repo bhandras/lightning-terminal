@@ -16,6 +16,7 @@ import (
 	"github.com/lightninglabs/taproot-assets/taprpc/mintrpc"
 	"github.com/lightninglabs/taproot-assets/taprpc/rfqrpc"
 	tchrpc "github.com/lightninglabs/taproot-assets/taprpc/tapchannelrpc"
+	"github.com/lightninglabs/taproot-assets/taprpc/tapdevrpc"
 	"github.com/lightninglabs/taproot-assets/taprpc/universerpc"
 	"github.com/lightningnetwork/lnd/lnrpc"
 	"google.golang.org/grpc"
@@ -132,6 +133,7 @@ func (t *taprootAssetsSubServer) RegisterGrpcService(
 	rfqrpc.RegisterRfqServer(registrar, t)
 	tchrpc.RegisterTaprootAssetChannelsServer(registrar, t)
 	universerpc.RegisterUniverseServer(registrar, t)
+	tapdevrpc.RegisterTapDevServer(registrar, t)
 }
 
 // RegisterRestService registers the sub-server's REST handlers with the given
